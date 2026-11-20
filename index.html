@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXORA — вакансії та працевлаштування в Європі.">
+  <title>NEXORA — Робота за кордоном</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="#home" class="logo">NEXORA<span>🌍</span></a>
+  <nav class="main-nav">
+    <a href="#home">Головна</a>
+    <a href="#countries">Країни</a>
+    <a href="#jobs">Вакансії</a>
+    <a href="#about">Про нас</a>
+    <a href="#contacts">Контакти</a>
+    <a href="#qr">QR-код</a>
+  </nav>
+  <button class="login-btn" onclick="openModal('loginModal')">Увійти</button>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">✈ ПРАЦЕВЛАШТУВАННЯ В ЄВРОПІ</span>
+    <h1>Знайди роботу своєї мрії <span>за кордоном!</span></h1>
+    <p>Обирай країну, знаходь вакансію та переходь до Telegram-каналу NEXORA.</p>
+    <a class="primary-btn" href="#jobs">Переглянути вакансії →</a>
+    <div class="stats">
+      <div><strong id="totalJobs">0</strong><small>вакансій</small></div>
+      <div><strong>3</strong><small>країни</small></div>
+      <div><strong>24/7</strong><small>доступ до сайту</small></div>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="globe">🌍</div>
+    <div class="floating-card">💼 Робота в Європі</div>
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+  </div>
+</section>
+
+<section class="section countries-section" id="countries">
+  <div class="section-heading">
+    <span class="eyebrow">ОБИРАЙ НАПРЯМОК</span>
+    <h2>Країни для <span>роботи</span></h2>
+    <p>Переглядай пропозиції за країнами.</p>
+  </div>
+  <div class="country-grid">
+    <button class="country-card" onclick="selectCountry('Німеччина')">
+      <span>🇩🇪</span><b>Німеччина</b><small id="countGermany">0 вакансій</small>
+    </button>
+    <button class="country-card" onclick="selectCountry('Бельгія')">
+      <span>🇧🇪</span><b>Бельгія</b><small id="countBelgium">0 вакансій</small>
+    </button>
+    <button class="country-card" onclick="selectCountry('Нідерланди')">
+      <span>🇳🇱</span><b>Нідерланди</b><small id="countNetherlands">0 вакансій</small>
+    </button>
+  </div>
+</section>
+
+<section class="section jobs-section" id="jobs">
+  <div class="section-heading">
+    <span class="eyebrow">ОГОЛОШЕННЯ NEXORA</span>
+    <h2>Знайди свою <span>вакансію</span></h2>
+    <p>Натисни на вакансію, щоб перейти до Telegram-каналу.</p>
+  </div>
+
+  <div class="filters">
+    <input id="search" type="search" placeholder="🔎 Пошук за професією або містом...">
+    <select id="country">
+      <option value="all">Усі країни</option>
+      <option>Німеччина</option>
+      <option>Бельгія</option>
+      <option>Нідерланди</option>
+    </select>
+    <select id="type">
+      <option value="all">Усі категорії</option>
+    </select>
+    <button class="secondary-btn" onclick="resetFilters()">Скинути</button>
+  </div>
+
+  <p class="result-count" id="resultCount"></p>
+  <div class="job-grid" id="jobGrid"></div>
+  <p class="empty-message" id="empty" hidden>Вакансій не знайдено.</p>
+  <button class="primary-btn load-more" id="loadMore" onclick="showMore()">Показати ще</button>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="about-copy">
+    <span class="eyebrow">ЧОМУ NEXORA?</span>
+    <h2>Твоя робота в Європі починається тут!</h2>
+    <p>NEXORA збирає оголошення про роботу в одному місці, щоб тобі було зручніше шукати вакансії та переходити до джерела публікації.</p>
+  </div>
+  <div class="advantages">
+    <div>✓ Зручний пошук вакансій</div>
+    <div>🌍 Вакансії у трьох країнах</div>
+    <div>📱 Перехід до Telegram-каналу</div>
+    <div>🔎 Фільтри за професією та країною</div>
+  </div>
+</section>
+
+<section class="contacts-section" id="contacts">
+  <span class="eyebrow">МИ НА ЗВ'ЯЗКУ</span>
+  <h2>Шукаєш роботу?</h2>
+  <p>Перейди до Telegram-каналу NEXORA та переглянь оголошення.</p>
+  <a class="primary-btn" href="https://t.me/NEXORA_EU" target="_blank">Відкрити Telegram →</a>
+</section>
+</main>
+
+<section class="qr-section" id="qr">
+  <span class="eyebrow">ПРИЄДНУЙСЯ ДО НАС</span>
+  <h2>Скануй QR-код NEXORA</h2>
+  <p>Відскануй код камерою телефона, щоб відкрити наш Telegram-канал.</p>
+  <a href="https://t.me/NEXORA_EU" target="_blank">
+    <img src="qrcode.png" alt="QR-код NEXORA">
+  </a>
+  <a class="qr-link" href="https://t.me/NEXORA_EU" target="_blank">@NEXORA_EU →</a>
+</section>
+
+<footer class="site-footer">
+  <a href="#home" class="logo">NEXORA<span>🌍</span></a>
+  <p>© 2026 NEXORA. Усі права захищені.</p>
+  <a href="https://t.me/NEXORA_EU" target="_blank">@NEXORA_EU</a>
+</footer>
+
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+    <h2>Вхід</h2>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Пароль">
+    <button class="primary-btn full-width" onclick="login()">Увійти</button>
+    <p id="loginResult" class="form-result"></p>
+    <small class="modal-note">Демонстраційна форма. Авторизацію не підключено.</small>
+  </div>
+</div>
+
+<div class="modal" id="detailsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('detailsModal')">×</button>
+    <span class="eyebrow" id="detailCategory"></span>
+    <h2 id="detailTitle"></h2>
+    <p id="detailDescription"></p>
+    <a class="primary-btn full-width" href="https://t.me/NEXORA_EU" target="_blank">Перейти до NEXORA в Telegram →</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
